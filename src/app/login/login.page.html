@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" class="ion-text-center ion-align-items-center">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+    <ion-card style="max-width: 100%;">
+      <img alt="Silhouette of mountains" src="assets/logoduoc.jpg" style="max-width: 200%; max-height: 300px;" />
+      <ion-card-header>
+        <ion-card-title>App RegistrQR</ion-card-title>
+        <ion-card-subtitle>Ingreso</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content class="ion-text-center">
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input [(ngModel)]="formData.username" name="username" required></ion-input>
+          <ion-icon name="person" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="formData.password" name="password" type="{{ formData.showPassword ? 'text' : 'password' }}" required></ion-input>
+          <ion-icon (click)="togglePassword()" slot="end" name="{{ formData.showPassword ? 'eye-off' : 'eye' }}" style="cursor: pointer;"></ion-icon>
+        </ion-item>
+
+        <ion-button expand="block" style="width: 85%; margin: 16px auto;" (click)="ingresar()">Ingresar</ion-button>
+
+        <!-- Enlace para Restablecer Contraseña -->
+        <p style="margin-top: 10px; cursor: pointer;" [routerLink]="['/cambio-contrasena']" [style.color]="isMouseOver ? 'var(--ion-color-primary)' : 'inherit'">
+          ¿Restablecer Contraseña?
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

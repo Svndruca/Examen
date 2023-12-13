@@ -1,0 +1,58 @@
+<!-- estudiante.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Estudiante</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large">Estudiante</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="ion-text-center" *ngIf="datosEstudiante">
+    <ion-card-header>
+      Datos del Estudiante
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input [(ngModel)]="datosEstudiante.nombre" name="nombre" required [disabled]="!mostrarFormulario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Apellido Paterno</ion-label>
+        <ion-input [(ngModel)]="datosEstudiante.apellidoPaterno" name="apellidoPaterno" required [disabled]="!mostrarFormulario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Apellido Materno</ion-label>
+        <ion-input [(ngModel)]="datosEstudiante.apellidoMaterno" name="apellidoMaterno" required [disabled]="!mostrarFormulario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">RUT</ion-label>
+        <ion-input [(ngModel)]="datosEstudiante.rut" name="rut" required [disabled]="!mostrarFormulario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input [(ngModel)]="datosEstudiante.correo" name="correo" required [disabled]="!mostrarFormulario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha de Nacimiento</ion-label>
+        <ion-input [(ngModel)]="datosEstudiante.fechaNacimiento" name="fechaNacimiento" required [disabled]="!mostrarFormulario"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-buttons>
+      <ion-button (click)="guardarDatos()" [disabled]="!mostrarFormulario">Guardar</ion-button>
+      <ion-button (click)="editarDatos()" [disabled]="mostrarFormulario">Editar</ion-button>
+    </ion-buttons>
+  </ion-card>
+
+</ion-content>
